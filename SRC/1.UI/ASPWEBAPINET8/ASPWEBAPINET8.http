@@ -1,0 +1,6 @@
+@ASPWEBAPINET8_HostAddress = http://localhost:5041
+
+GET {{ASPWEBAPINET8_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
