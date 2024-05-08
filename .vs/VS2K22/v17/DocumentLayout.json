@@ -1,36 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{191FE6BE-499C-4B3C-87A6-303B201712D5}|SRC\\1.UI\\WINFRMCSNET8\\WINFRMCSNET8.csproj|d:\\desarrollo\\proyectos\\jgacodetest\\vs2k22\\vs2k22\\src\\1.ui\\winfrmcsnet8\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{191FE6BE-499C-4B3C-87A6-303B201712D5}|SRC\\1.UI\\WINFRMCSNET8\\WINFRMCSNET8.csproj|solutionrelative:src\\1.ui\\winfrmcsnet8\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\1.UI\\WINFRMCSNET8\\Form1.cs",
-              "RelativeDocumentMoniker": "SRC\\1.UI\\WINFRMCSNET8\\Form1.cs",
-              "ToolTip": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\1.UI\\WINFRMCSNET8\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "SRC\\1.UI\\WINFRMCSNET8\\Form1.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-08T01:40:11.917Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }
