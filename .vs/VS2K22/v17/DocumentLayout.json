@@ -1,12 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{4FF21C42-BADF-4448-B3AA-1C6B1448E8BF}|SRC\\1.UI\\WINFRMCSNET472\\WINFRMCSNET472.csproj|d:\\desarrollo\\proyectos\\jgacodetest\\vs2k22\\vs2k22\\src\\1.ui\\winfrmcsnet472\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4FF21C42-BADF-4448-B3AA-1C6B1448E8BF}|SRC\\1.UI\\WINFRMCSNET472\\WINFRMCSNET472.csproj|solutionrelative:src\\1.ui\\winfrmcsnet472\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,23 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Form1.cs [Dise\u00F1o]",
-              "DocumentMoniker": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\1.UI\\WINFRMCSNET472\\Form1.cs",
-              "RelativeDocumentMoniker": "SRC\\1.UI\\WINFRMCSNET472\\Form1.cs",
-              "ToolTip": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\1.UI\\WINFRMCSNET472\\Form1.cs [Dise\u00F1o]",
-              "RelativeToolTip": "SRC\\1.UI\\WINFRMCSNET472\\Form1.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-08T02:15:05.762Z",
-              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }
