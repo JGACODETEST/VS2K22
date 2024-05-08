@@ -11,3 +11,6 @@ project.nuget.cache
 WINFRMCSNET8.csproj.nuget.dgspec.json
 WINFRMCSNET8.csproj.nuget.g.props
 WINFRMCSNET8.csproj.nuget.g.targets
+/SRC/1.UI/WINFRMCSNET6/obj
+/SRC/1.UI/WINFRMCSNET7/obj
+/.gitignore
