@@ -32,3 +32,6 @@ WINFRMCSNET8.csproj.nuget.g.targets
 /.vs/VS2K22/FileContentIndex/bff1fd78-8604-4ab2-aa4d-7d3a85ab36c2.vsidx
 /SRC/1.UI/ASPMVCNET472/bin
 /SRC/1.UI/ASPMVCNET472/obj/Debug
+/SRC/1.UI/ASPWEBAPINET472/obj/Debug
+/SRC/1.UI/ASPWEBAPINET472/bin
+/.vs/VS2K22/FileContentIndex
