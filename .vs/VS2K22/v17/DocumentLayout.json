@@ -3,27 +3,43 @@
   "WorkspaceRootPath": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B0CF8BBF-09C7-4D1C-AFAA-0E0C6B00C72A}|SRC\\0.CONSOLE\\NET8NIVSUP\\NET8NIVSUP.csproj|d:\\desarrollo\\proyectos\\jgacodetest\\vs2k22\\vs2k22\\src\\0.console\\net8nivsup\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B0CF8BBF-09C7-4D1C-AFAA-0E0C6B00C72A}|SRC\\0.CONSOLE\\NET8NIVSUP\\NET8NIVSUP.csproj|solutionrelative:src\\0.console\\net8nivsup\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9E06C341-AF0B-4783-84AB-882BEA81B7EB}|SRC\\0.CONSOLE\\NET6\\NET6.csproj|d:\\desarrollo\\proyectos\\jgacodetest\\vs2k22\\vs2k22\\src\\0.console\\net6\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E06C341-AF0B-4783-84AB-882BEA81B7EB}|SRC\\0.CONSOLE\\NET6\\NET6.csproj|solutionrelative:src\\0.console\\net6\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{14CD237F-DE0D-4498-9F9F-0E8A0E304B63}|SRC\\0.CONSOLE\\NET7NIVSUP\\NET7NIVSUP.csproj|d:\\desarrollo\\proyectos\\jgacodetest\\vs2k22\\vs2k22\\src\\0.console\\net7nivsup\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{14CD237F-DE0D-4498-9F9F-0E8A0E304B63}|SRC\\0.CONSOLE\\NET7NIVSUP\\NET7NIVSUP.csproj|solutionrelative:src\\0.console\\net7nivsup\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9E06C341-AF0B-4783-84AB-882BEA81B7EB}|SRC\\0.CONSOLE\\NET6\\NET6.csproj|d:\\desarrollo\\proyectos\\jgacodetest\\vs2k22\\vs2k22\\src\\0.console\\net6\\repository\\testtablerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E06C341-AF0B-4783-84AB-882BEA81B7EB}|SRC\\0.CONSOLE\\NET6\\NET6.csproj|solutionrelative:src\\0.console\\net6\\repository\\testtablerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C430EA8-982A-4FDA-872C-C1702188A1CC}|SRC\\0.CONSOLE\\NET8\\NET8.csproj|d:\\desarrollo\\proyectos\\jgacodetest\\vs2k22\\vs2k22\\src\\0.console\\net8\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C430EA8-982A-4FDA-872C-C1702188A1CC}|SRC\\0.CONSOLE\\NET8\\NET8.csproj|solutionrelative:src\\0.console\\net8\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9E06C341-AF0B-4783-84AB-882BEA81B7EB}|SRC\\0.CONSOLE\\NET6\\NET6.csproj|d:\\desarrollo\\proyectos\\jgacodetest\\vs2k22\\vs2k22\\src\\0.console\\net6\\repository\\itesttable1repo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E06C341-AF0B-4783-84AB-882BEA81B7EB}|SRC\\0.CONSOLE\\NET6\\NET6.csproj|solutionrelative:src\\0.console\\net6\\repository\\itesttable1repo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E06C341-AF0B-4783-84AB-882BEA81B7EB}|SRC\\0.CONSOLE\\NET6\\NET6.csproj|d:\\desarrollo\\proyectos\\jgacodetest\\vs2k22\\vs2k22\\src\\0.console\\net6\\repository\\irepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E06C341-AF0B-4783-84AB-882BEA81B7EB}|SRC\\0.CONSOLE\\NET6\\NET6.csproj|solutionrelative:src\\0.console\\net6\\repository\\irepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{01AD524B-6A20-49FF-A65E-E19FA976651A}|SRC\\0.CONSOLE\\NET7\\NET7.csproj|d:\\desarrollo\\proyectos\\jgacodetest\\vs2k22\\vs2k22\\src\\0.console\\net7\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{01AD524B-6A20-49FF-A65E-E19FA976651A}|SRC\\0.CONSOLE\\NET7\\NET7.csproj|solutionrelative:src\\0.console\\net7\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9E06C341-AF0B-4783-84AB-882BEA81B7EB}|SRC\\0.CONSOLE\\NET6\\NET6.csproj|d:\\desarrollo\\proyectos\\jgacodetest\\vs2k22\\vs2k22\\src\\0.console\\net6\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E06C341-AF0B-4783-84AB-882BEA81B7EB}|SRC\\0.CONSOLE\\NET6\\NET6.csproj|solutionrelative:src\\0.console\\net6\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9E06C341-AF0B-4783-84AB-882BEA81B7EB}|SRC\\0.CONSOLE\\NET6\\NET6.csproj|d:\\desarrollo\\proyectos\\jgacodetest\\vs2k22\\vs2k22\\src\\0.console\\net6\\repository\\entities\\testtable1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E06C341-AF0B-4783-84AB-882BEA81B7EB}|SRC\\0.CONSOLE\\NET6\\NET6.csproj|solutionrelative:src\\0.console\\net6\\repository\\entities\\testtable1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{34939DC7-BA27-48C5-91FD-BD1CA8B584C2}|SRC\\0.CONSOLE\\NET472\\NET472.csproj|d:\\desarrollo\\proyectos\\jgacodetest\\vs2k22\\vs2k22\\src\\0.console\\net472\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{34939DC7-BA27-48C5-91FD-BD1CA8B584C2}|SRC\\0.CONSOLE\\NET472\\NET472.csproj|d:\\desarrollo\\proyectos\\jgacodetest\\vs2k22\\vs2k22\\src\\0.console\\net472\\repository\\testtablerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34939DC7-BA27-48C5-91FD-BD1CA8B584C2}|SRC\\0.CONSOLE\\NET472\\NET472.csproj|solutionrelative:src\\0.console\\net472\\repository\\testtablerepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34939DC7-BA27-48C5-91FD-BD1CA8B584C2}|SRC\\0.CONSOLE\\NET472\\NET472.csproj|d:\\desarrollo\\proyectos\\jgacodetest\\vs2k22\\vs2k22\\src\\0.console\\net472\\repository\\entities\\testtable1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{34939DC7-BA27-48C5-91FD-BD1CA8B584C2}|SRC\\0.CONSOLE\\NET472\\NET472.csproj|solutionrelative:src\\0.console\\net472\\repository\\entities\\testtable1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34939DC7-BA27-48C5-91FD-BD1CA8B584C2}|SRC\\0.CONSOLE\\NET472\\NET472.csproj|d:\\desarrollo\\proyectos\\jgacodetest\\vs2k22\\vs2k22\\src\\0.console\\net472\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{34939DC7-BA27-48C5-91FD-BD1CA8B584C2}|SRC\\0.CONSOLE\\NET472\\NET472.csproj|solutionrelative:src\\0.console\\net472\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{34939DC7-BA27-48C5-91FD-BD1CA8B584C2}|SRC\\0.CONSOLE\\NET472\\NET472.csproj|D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\src\\0.console\\net472\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{34939DC7-BA27-48C5-91FD-BD1CA8B584C2}|SRC\\0.CONSOLE\\NET472\\NET472.csproj|solutionrelative:src\\0.console\\net472\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -34,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,46 +58,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET8NIVSUP\\Program.cs",
-              "RelativeDocumentMoniker": "SRC\\0.CONSOLE\\NET8NIVSUP\\Program.cs",
-              "ToolTip": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET8NIVSUP\\Program.cs",
-              "RelativeToolTip": "SRC\\0.CONSOLE\\NET8NIVSUP\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T01:25:16.726Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET7NIVSUP\\Program.cs",
-              "RelativeDocumentMoniker": "SRC\\0.CONSOLE\\NET7NIVSUP\\Program.cs",
-              "ToolTip": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET7NIVSUP\\Program.cs",
-              "RelativeToolTip": "SRC\\0.CONSOLE\\NET7NIVSUP\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "TestTableRepo.cs",
+              "DocumentMoniker": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET6\\Repository\\TestTableRepo.cs",
+              "RelativeDocumentMoniker": "SRC\\0.CONSOLE\\NET6\\Repository\\TestTableRepo.cs",
+              "ToolTip": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET6\\Repository\\TestTableRepo.cs",
+              "RelativeToolTip": "SRC\\0.CONSOLE\\NET6\\Repository\\TestTableRepo.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA4AAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T01:24:57.632Z",
+              "WhenOpened": "2024-05-14T04:23:25.482Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET8\\Program.cs",
-              "RelativeDocumentMoniker": "SRC\\0.CONSOLE\\NET8\\Program.cs",
-              "ToolTip": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET8\\Program.cs",
-              "RelativeToolTip": "SRC\\0.CONSOLE\\NET8\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "ITestTable1Repo.cs",
+              "DocumentMoniker": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET6\\Repository\\ITestTable1Repo.cs",
+              "RelativeDocumentMoniker": "SRC\\0.CONSOLE\\NET6\\Repository\\ITestTable1Repo.cs",
+              "ToolTip": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET6\\Repository\\ITestTable1Repo.cs",
+              "RelativeToolTip": "SRC\\0.CONSOLE\\NET6\\Repository\\ITestTable1Repo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T01:23:23.643Z",
+              "WhenOpened": "2024-05-14T04:23:21.358Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "IRepo.cs",
+              "DocumentMoniker": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET6\\Repository\\IRepo.cs",
+              "RelativeDocumentMoniker": "SRC\\0.CONSOLE\\NET6\\Repository\\IRepo.cs",
+              "ToolTip": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET6\\Repository\\IRepo.cs",
+              "RelativeToolTip": "SRC\\0.CONSOLE\\NET6\\Repository\\IRepo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-14T04:23:12.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET7\\Program.cs",
               "RelativeDocumentMoniker": "SRC\\0.CONSOLE\\NET7\\Program.cs",
@@ -89,33 +105,85 @@
               "RelativeToolTip": "SRC\\0.CONSOLE\\NET7\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T01:23:01.263Z",
+              "WhenOpened": "2024-05-14T04:21:43.99Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET6\\Program.cs",
               "RelativeDocumentMoniker": "SRC\\0.CONSOLE\\NET6\\Program.cs",
               "ToolTip": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET6\\Program.cs",
               "RelativeToolTip": "SRC\\0.CONSOLE\\NET6\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAABTAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T01:22:41.001Z",
+              "WhenOpened": "2024-05-14T04:21:14.463Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "TestTable1.cs",
+              "DocumentMoniker": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET6\\Repository\\Entities\\TestTable1.cs",
+              "RelativeDocumentMoniker": "SRC\\0.CONSOLE\\NET6\\Repository\\Entities\\TestTable1.cs",
+              "ToolTip": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET6\\Repository\\Entities\\TestTable1.cs",
+              "RelativeToolTip": "SRC\\0.CONSOLE\\NET6\\Repository\\Entities\\TestTable1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-14T04:21:04.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TestTable1.cs",
+              "DocumentMoniker": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET472\\Repository\\Entities\\TestTable1.cs",
+              "RelativeDocumentMoniker": "SRC\\0.CONSOLE\\NET472\\Repository\\Entities\\TestTable1.cs",
+              "ToolTip": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET472\\Repository\\Entities\\TestTable1.cs",
+              "RelativeToolTip": "SRC\\0.CONSOLE\\NET472\\Repository\\Entities\\TestTable1.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-14T04:19:57.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TestTableRepo.cs",
+              "DocumentMoniker": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET472\\Repository\\TestTableRepo.cs",
+              "RelativeDocumentMoniker": "SRC\\0.CONSOLE\\NET472\\Repository\\TestTableRepo.cs",
+              "ToolTip": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET472\\Repository\\TestTableRepo.cs",
+              "RelativeToolTip": "SRC\\0.CONSOLE\\NET472\\Repository\\TestTableRepo.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAIAwwCAAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-14T04:19:36.05Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "App.config",
+              "DocumentMoniker": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET472\\App.config",
+              "RelativeDocumentMoniker": "SRC\\0.CONSOLE\\NET472\\App.config",
+              "ToolTip": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET472\\App.config",
+              "RelativeToolTip": "SRC\\0.CONSOLE\\NET472\\App.config",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwCcAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-05-14T04:13:24.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET472\\Program.cs",
               "RelativeDocumentMoniker": "SRC\\0.CONSOLE\\NET472\\Program.cs",
               "ToolTip": "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET472\\Program.cs",
               "RelativeToolTip": "SRC\\0.CONSOLE\\NET472\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAYwDcAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-10T01:15:32.38Z",
+              "WhenOpened": "2024-05-14T02:56:03.91Z",
               "EditorCaption": ""
             }
           ]
