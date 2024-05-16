@@ -56,9 +56,10 @@ v.1.0.1
 			docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=sql2K19@" -p 1433:1433 --name sql2K19 --hostname sql2K19 -d mcr.microsoft.com/mssql/server:2019-latest 	
 			
 			docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=sql2K19@" -p 1433:1433 --name sql2K19 --hostname sql2K19 -v E:/DOCKER/DockerDir/SQL2K19/data:/var/opt/mssql/data -v E:/DOCKER/DockerDir/SQL2K19/log:/var/opt/mssql/log -v E:/DOCKER/DockerDir/SQL2K19/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/mssql/server:2019-latest 	
-			docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=sql2K19@" -p 1433:1433 --name sql2K19 --hostname sql2K19 -v E:/DOCKER/DockerDir/SQL2K19/data:/var/opt/mssql/data -v E:/DOCKER/DockerDir/SQL2K19/log:/var/opt/mssql/log -v E:/DOCKER/DockerDir/SQL2K19/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/mssql/server:2019-latest 	
+			(*) docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=sql2K19@" -p 1433:1433 --name sql2K19 --hostname sql2K19 -v E:/DOCKER/DockerDir/SQL2K19/data:/var/opt/mssql/data -v E:/DOCKER/DockerDir/SQL2K19/log:/var/opt/mssql/log -v E:/DOCKER/DockerDir/SQL2K19/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/mssql/server:2019-latest 	
 
 
+			INICIAR CONTAINER: docker start sql2K19
 			DETENER CONTAINER: docker stop sql2K19
 		
 		
@@ -88,16 +89,25 @@ v.1.0.1
 			
 			docker run -p 3306:3306 --name=mySqlLatest -v E:\DOCKER\DockerDir\MYSQLLatest:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root@2K24 -d mysql:latest
 			
+			
+			DETENER CONTAINER: docker stop mySqlLatest
+			
 		8.0			
 			docker run -p 3306:3306 --name mySql80 -e MYSQL_ROOT_PASSWORD=root@2K24 -d mysql:8.0
 			
 			docker run -p 3306:3306 --name=mySql80 -v E:\DOCKER\DockerDir\MYSQL80:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root@2K24 -d mysql:8.0
 			
+			
+			DETENER CONTAINER: docker stop mySql80
+			
 		5.7			
 			docker run -p 3306:3306 --name mySql57 -e MYSQL_ROOT_PASSWORD=root@2K24 -d mysql:5.7
 			
-			docker run -p 3306:3306 --name=mySql57 -v E:\DOCKER\DockerDir\MYSQL57:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root@2K24 -d mysql:5.7
+			(*) docker run -p 3306:3306 --name=mySql57 -v E:\DOCKER\DockerDir\MYSQL57:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root@2K24 -d mysql:5.7
 	
+	
+			INICIAR CONTAINER: docker start mySql57
+			DETENER CONTAINER: docker stop mySql57
 
 
 	
