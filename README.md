@@ -32,6 +32,23 @@ v.1.0.1
 			docker pull postgres:latest
 		13: docker pull postgres:13
 	
+	MARIADB
+		LATEST
+			docker pull mariadb
+			docker pull mariadb:latest
+
+		10.11
+			docker pull mariadb:10.11
+			
+	MONGODB
+		LATEST
+			docker pull mongo
+			docker pull mongo:latest
+			
+		4.4
+			docker pull mongo:4.4
+			
+			
 3. CREAR VOLUMES DOCKER
 		docker volume create sql2K19-vol
 
@@ -115,6 +132,21 @@ v.1.0.1
 
 	POSTGRESQL
 		LATEST
-			docker run --name postgresLatest -e POSTGRES_PASSWORD=postgre@2K24 -v E:\DOCKER\DockerDir\POSTGRES:/var/lib/postgresql/data -d postgres
-			
+			docker run --name postgresLatest -e POSTGRES_PASSWORD=postgre@2K24 -v E:\DOCKER\DockerDir\POSTGRES:/var/lib/postgresql/data -d postgres			
 			docker run --name postgresLatest -e POSTGRES_PASSWORD=postgre@2K24 -v E:\DOCKER\DockerDir\POSTGRES:/var/lib/postgresql/data -d postgres:latest
+			
+		13			
+			docker run --name postgres13 -e POSTGRES_PASSWORD=postgre@2K24 -v E:\DOCKER\DockerDir\POSTGRES13:/var/lib/postgresql/data -d postgres:13
+			
+	MARIADB
+		LATEST
+			docker run --name mariadbLatest -e MYSQL_ROOT_PASSWORD=root@2K24 -v E:\DOCKER\DockerDir\MARIADB:/var/lib/mysql -d mariadb
+			
+		10.11
+			docker run --name mariadb1011 -e MYSQL_ROOT_PASSWORD=root@2K24 -v E:\DOCKER\DockerDir\MARIADB1011:/var/lib/mysql -d mariadb:10.11
+			
+	MONGODB
+		LATEST
+			docker run --name mongodbLatest -v E:\DOCKER\DockerDir\MONGODB:/data/db -d mongo:4.4
+		4.4 
+			docker run --name mongodb44 -v E:\DOCKER\DockerDir\MONGODB44:/data/db -d mongo:4.4
