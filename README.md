@@ -133,10 +133,12 @@ v.1.0.1
 	POSTGRESQL
 		LATEST
 			docker run --name postgresLatest -e POSTGRES_PASSWORD=postgre@2K24 -v E:\DOCKER\DockerDir\POSTGRES:/var/lib/postgresql/data -d postgres			
-			docker run --name postgresLatest -e POSTGRES_PASSWORD=postgre@2K24 -v E:\DOCKER\DockerDir\POSTGRES:/var/lib/postgresql/data -d postgres:latest
+			docker run --name postgresLatest -e POSTGRES_PASSWORD=postgre@2K24 -v E:\DOCKER\DockerDir\POSTGRES:/var/lib/postgresql/data -d postgres:latest			
+			docker run --name postgresLatest -e POSTGRES_PASSWORD=postgre@2K24 -v E:\DOCKER\DockerDir\POSTGRES:/var/lib/postgresql/data -p 5432:5432 -d postgres:latest
 			
 		13			
 			docker run --name postgres13 -e POSTGRES_PASSWORD=postgre@2K24 -v E:\DOCKER\DockerDir\POSTGRES13:/var/lib/postgresql/data -d postgres:13
+			docker run --name postgres13 -e POSTGRES_PASSWORD=postgre@2K24 -v E:\DOCKER\DockerDir\POSTGRES13:/var/lib/postgresql/data -p 5432:5432 -d postgres:13
 			
 	MARIADB
 		LATEST

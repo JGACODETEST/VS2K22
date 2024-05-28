@@ -10,11 +10,19 @@ namespace NET472.Repository
 {
     public class TestTableRepo : ITestTable1Repo
     {
+        private bool _useSchema { get; set; }
         private DbConnection _existingConnection { get; set; }
 
-        public TestTableRepo(DbConnection existingConnection)
+        //public TestTableRepo(DbConnection existingConnection)
+        //{
+        //    this._existingConnection = existingConnection;
+        //}
+
+        public TestTableRepo(DbConnection existingConnection, bool useSchema)
         {
             this._existingConnection = existingConnection;
+
+            this._useSchema = useSchema;
         }
 
         public List<TestTable1> getAll()
@@ -22,11 +30,28 @@ namespace NET472.Repository
             var result = new List<TestTable1>();
 
             try
-            {
-                using (var context = new DBContext.TestDBContext(this._existingConnection))
+            { 
+                if (!this._useSchema)
                 {
-                    result = context.testTable1s.ToList();
+                    using (var context = new DBContext.TestDBContext(this._existingConnection))
+                    {
+                        result = context.testTable1s.ToList();
+                    }
                 }
+                else
+                {
+                    using (var context = new DBContext.TestDBSchemaContext(this._existingConnection))
+                    {
+                        result = (from x in context.testTable1s.ToList()
+                                  select new TestTable1()
+                                  {
+                                      Id = x.Id,
+                                      Descripcion = x.Descripcion
+                                  }).ToList();
+                    }
+                    
+                }
+               
             }
             catch (Exception ex)
             {
