@@ -25,7 +25,13 @@ v.1.0.1
 			docker pull mysql:latest			
 		8.0: docker pull mysql:8.0			
 		5.7: docker pull mysql:5.7
-			
+	
+	POSTGRESQL
+		latest
+			docker pull postgres
+			docker pull postgres:latest
+		13: docker pull postgres:13
+	
 3. CREAR VOLUMES DOCKER
 		docker volume create sql2K19-vol
 
@@ -44,7 +50,7 @@ v.1.0.1
 			docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=<YourPassword>" -p 1433:1433 --name sql2K22 --hostname sql2K22 -v E:/DOCKER/DockerDir/SQL2K22/data:/var/opt/mssql/data -v E:/DOCKER/DockerDir/SQL2K22/log:/var/opt/mssql/log -v E:/DOCKER/DockerDir/SQL2K22/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/mssql/server:2022-latest 
 			docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=sql2K22@" -p 1433:1433 --name sql2K22 --hostname sql2K22 -v E:/DOCKER/DockerDir/SQL2K22/data:/var/opt/mssql/data -v E:/DOCKER/DockerDir/SQL2K22/log:/var/opt/mssql/log -v E:/DOCKER/DockerDir/SQL2K22/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/mssql/server:2022-latest 
 			
-			
+			INICIAR CONTAINER: docker start sql2K22
 			DETENER CONTAINER: docker stop sql2K22
 			
 			
@@ -75,21 +81,18 @@ v.1.0.1
 			docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=sql2K17@" -p 1433:1433 --name sql2K17 --hostname sql2K17 -v E:/DOCKER/DockerDir/SQL2K17/data:/var/opt/mssql/data -v E:/DOCKER/DockerDir/SQL2K17/log:/var/opt/mssql/log -v E:/DOCKER/DockerDir/SQL2K17/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/mssql/server:2017-latest 	
 
 
-
+			INICIAR CONTAINER: docker start sql2K17
 			DETENER CONTAINER: docker stop sql2K17
 			
 			
 	MYSQL
-	
-		docker pull container-registry.oracle.com/mysql/community-server:tag
-
-
 		LATEST
 			docker run -p 3306:3306 --name mySqlLatest -e MYSQL_ROOT_PASSWORD=root@2K24 -d mysql:latest
 			
 			docker run -p 3306:3306 --name=mySqlLatest -v E:\DOCKER\DockerDir\MYSQLLatest:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root@2K24 -d mysql:latest
 			
 			
+			INICIAR CONTAINER: docker start mySqlLatest
 			DETENER CONTAINER: docker stop mySqlLatest
 			
 		8.0			
@@ -98,6 +101,7 @@ v.1.0.1
 			docker run -p 3306:3306 --name=mySql80 -v E:\DOCKER\DockerDir\MYSQL80:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root@2K24 -d mysql:8.0
 			
 			
+			INICIAR CONTAINER: docker start mySql80
 			DETENER CONTAINER: docker stop mySql80
 			
 		5.7			
@@ -109,5 +113,8 @@ v.1.0.1
 			INICIAR CONTAINER: docker start mySql57
 			DETENER CONTAINER: docker stop mySql57
 
-
-	
+	POSTGRESQL
+		LATEST
+			docker run --name postgresLatest -e POSTGRES_PASSWORD=postgre@2K24 -v E:\DOCKER\DockerDir\POSTGRES:/var/lib/postgresql/data -d postgres
+			
+			docker run --name postgresLatest -e POSTGRES_PASSWORD=postgre@2K24 -v E:\DOCKER\DockerDir\POSTGRES:/var/lib/postgresql/data -d postgres:latest
