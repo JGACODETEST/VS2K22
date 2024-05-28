@@ -50,6 +50,18 @@ namespace NET472
                 SearchPath = "public"
             };
 
+            var builderMariaDB = new MySqlConnectionStringBuilder
+            {
+                Server = "localhost",
+                Database = "TESTDBMARIADB1011",
+                UserID = "root",
+                Password = "root@2K24",
+                Port = 3307
+            };
+
+
+
+
             using (DbConnection connection = new SqlConnection(builderSQLServer.ConnectionString))
             {
                 connection.Open();
@@ -98,6 +110,25 @@ namespace NET472
                 );
 
                 Console.WriteLine("ITEMS POSTGRES: ");
+
+                var testTable1List = testTable1Repo.getAll();
+
+                foreach (var item in testTable1List)
+                {
+                    Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
+                }
+            }
+
+            using (DbConnection connection = new MySqlConnection(builderMariaDB.ConnectionString))
+            {
+                connection.Open();
+
+                var testTable1Repo = container.Resolve<ITestTable1Repo>(
+                    new ParameterOverride("existingConnection", connection),
+                    new ParameterOverride("useSchema", false)
+                );
+
+                Console.WriteLine("ITEMS MARIADB: ");
 
                 var testTable1List = testTable1Repo.getAll();
 

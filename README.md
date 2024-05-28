@@ -143,12 +143,23 @@ v.1.0.1
 	MARIADB
 		LATEST
 			docker run --name mariadbLatest -e MYSQL_ROOT_PASSWORD=root@2K24 -v E:\DOCKER\DockerDir\MARIADB:/var/lib/mysql -d mariadb
-			
+			docker run --name mariadbLatest -p 3307:3306 -e MARIADB_ROOT_PASSWORD=root@2K24 -v E:\DOCKER\DockerDir\MARIADB:/var/lib/mysql -d mariadb:latest
+
 		10.11
 			docker run --name mariadb1011 -e MYSQL_ROOT_PASSWORD=root@2K24 -v E:\DOCKER\DockerDir\MARIADB1011:/var/lib/mysql -d mariadb:10.11
+			docker run --name mariadb1011 -p 3307:3306 -e MARIADB_ROOT_PASSWORD=root@2K24 -v E:\DOCKER\DockerDir\MARIADB1011:/var/lib/mysql -d mariadb:10.11
 			
+		CONECTAR
+			docker exec -it mariadb bash
+			mysql -u root -p
+		
 	MONGODB
 		LATEST
-			docker run --name mongodbLatest -v E:\DOCKER\DockerDir\MONGODB:/data/db -d mongo:4.4
+			docker run --name mongodbLatest -v E:\DOCKER\DockerDir\MONGODB:/data/db -d mongo
+			docker run --name mongodbLatest -v E:\DOCKER\DockerDir\MONGODB:/data/db -d mongo:latest
+			docker run --name mongodbLatest -v E:\DOCKER\DockerDir\MONGODB:/data/db -p 27017:27017 -d mongo:latest
+
+			
 		4.4 
 			docker run --name mongodb44 -v E:\DOCKER\DockerDir\MONGODB44:/data/db -d mongo:4.4
+			docker run --name mongodb44 -v E:\DOCKER\DockerDir\MONGODB44:/data/db -p 27017:27017 -d mongo:4.4
