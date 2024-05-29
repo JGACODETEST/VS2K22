@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using MySql.Data.MySqlClient;
 using NET472.Repository;
 using Npgsql;
 using System;
@@ -67,7 +69,7 @@ namespace NET472
                 JournalMode = SQLiteJournalModeEnum.Wal,
                 Pooling = true
             };
-            
+
             //ListSQLServer(container, builderSQLServer);
 
             //ListMySQL(container, builderMySQL);
@@ -76,28 +78,16 @@ namespace NET472
 
             //ListMariaDB(container, builderMariaDB);
 
-            using (DbConnection connection = new SQLiteConnection(builderSqlite.ConnectionString))
-            {
-                connection.Open();
+            //ListSQLite(container, builderSqlite);
 
-                var testTable1Repo = container.Resolve<ITestTable1Repo>(
-                    new ParameterOverride("existingConnection", connection),
-                    new ParameterOverride("useSchema", false)
-                );
 
-                Console.WriteLine("ITEMS SQLITE: ");
-
-                var testTable1List = testTable1Repo.getAll();
-
-                foreach (var item in testTable1List)
-                {
-                    Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
-                }
-            }
+            ListMongoDB();
 
             Console.ReadLine();
         }
 
+        
+        
         private static void ListSQLServer(IUnityContainer container, SqlConnectionStringBuilder builderSQLServer)
         {
             using (DbConnection connection = new SqlConnection(builderSQLServer.ConnectionString))
@@ -185,6 +175,52 @@ namespace NET472
                 }
             }
         }
+
+        private static void ListSQLite(IUnityContainer container, SQLiteConnectionStringBuilder builderSqlite)
+        {
+            using (DbConnection connection = new SQLiteConnection(builderSqlite.ConnectionString))
+            {
+                connection.Open();
+
+                var testTable1Repo = container.Resolve<ITestTable1Repo>(
+                    new ParameterOverride("existingConnection", connection),
+                    new ParameterOverride("useSchema", false)
+                );
+
+                Console.WriteLine("ITEMS SQLITE: ");
+
+                var testTable1List = testTable1Repo.getAll();
+
+                foreach (var item in testTable1List)
+                {
+                    Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
+                }
+            }
+        }
+
+        private static void ListMongoDB()
+        {
+            // Replace with your connection string
+            const string connectionString = "mongodb://localhost:27017";
+
+            // Create a MongoClient object
+            var client = new MongoClient(connectionString);
+
+            // Use the MongoClient to access the server
+            var database = client.GetDatabase("TESTMONGODB44");
+
+            // For example, to get a collection from the database
+            var collection = database.GetCollection<BsonDocument>("TESTCOLLECTION1");
+
+            var filter = Builders<BsonDocument>.Filter.Empty;
+            var documents = collection.Find(filter).ToList();
+
+            foreach (var document in documents)
+            {
+                Console.WriteLine(document.ToString());
+            }
+        }
+
 
     }
 }
