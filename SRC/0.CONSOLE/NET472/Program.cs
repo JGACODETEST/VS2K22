@@ -70,16 +70,15 @@ namespace NET472
                 Pooling = true
             };
 
-            //ListSQLServer(container, builderSQLServer);
+            ListSQLServer(container, builderSQLServer);
 
-            //ListMySQL(container, builderMySQL);
+            ListMySQL(container, builderMySQL);
 
-            //ListPostgres(container, builderPostgres);
+            ListPostgres(container, builderPostgres);
 
-            //ListMariaDB(container, builderMariaDB);
+            ListMariaDB(container, builderMariaDB);
 
-            //ListSQLite(container, builderSqlite);
-
+            ListSQLite(container, builderSqlite);
 
             ListMongoDB();
 

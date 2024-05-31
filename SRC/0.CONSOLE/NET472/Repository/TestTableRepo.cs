@@ -13,11 +13,6 @@ namespace NET472.Repository
         private bool _useSchema { get; set; }
         private DbConnection _existingConnection { get; set; }
 
-        //public TestTableRepo(DbConnection existingConnection)
-        //{
-        //    this._existingConnection = existingConnection;
-        //}
-
         public TestTableRepo(DbConnection existingConnection, bool useSchema)
         {
             this._existingConnection = existingConnection;

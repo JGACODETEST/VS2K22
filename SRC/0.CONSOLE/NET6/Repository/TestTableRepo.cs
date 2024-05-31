@@ -11,9 +11,8 @@ namespace NET6.Repository
 {
     public class TestTableRepo : ITestTable1Repo
     {
-
         private DbConnection _existingConnection { get; set; }
-        private int _dbConnectionType { get; set; } // 0 = SQL Server | 1 = MySQL
+        private int _dbConnectionType { get; set; } // 0 = SQL Server | 1 = MySQL | 2 = Postgres
 
         public TestTableRepo(DbConnection existingConnection, int dbConnectionType)
         {
@@ -26,11 +25,11 @@ namespace NET6.Repository
             var result = new List<TestTable1>();
 
             try
-            {                
+            {
                 switch (this._dbConnectionType)
                 {
                     case 0:
-                        using (var context = new DBContext.TestDBSql2K19Context(new Microsoft.Data.SqlClient.SqlConnection( this._existingConnection.ConnectionString)))
+                        using (var context = new DBContext.TestDBSql2K19Context(new Microsoft.Data.SqlClient.SqlConnection(this._existingConnection.ConnectionString)))
                         {
                             result = context.testTable1s.ToList();
                         }
@@ -45,16 +44,27 @@ namespace NET6.Repository
 
                         break;
 
+                    case 2:
+                        using (var context = new DBContext.TestDBPostgresContext(new Npgsql.NpgsqlConnection(this._existingConnection.ConnectionString)))
+                        {
+                            result = (from x in context.testTable1s
+                                      select new TestTable1()
+                                      {
+                                          Id = x.Id,
+                                          Descripcion = x.Descripcion
+                                      }).ToList();
+                        }
+
+                        break;
+
                     default:
                         break;
                 }
-                
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            
 
             return result;
         }
