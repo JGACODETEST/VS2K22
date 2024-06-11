@@ -4,6 +4,8 @@ using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using MySql.Data.MySqlClient;
 using NET8NIVSUP.Repository;
 using Npgsql;
@@ -99,7 +101,9 @@ using (var serviceScope = host.Services.CreateScope())
 
         //ListarMariaDB(builder, builderMariaDB);
 
-        ListarSQLite(builder, builderSqlite);
+        //ListarSQLite(builder, builderSqlite);
+
+        ListarMongoDB();
     }
     catch (Exception ex)
     {
@@ -205,5 +209,28 @@ static void ListarSQLite(HostApplicationBuilder builder, SqliteConnectionStringB
         {
             Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
         }
+    }
+}
+
+static void ListarMongoDB()
+{
+    // Replace with your connection string
+    const string connectionString = "mongodb://localhost:27017";
+
+    // Create a MongoClient object
+    var client = new MongoClient(connectionString);
+
+    // Use the MongoClient to access the server
+    var database = client.GetDatabase("TESTMONGODB44");
+
+    // For example, to get a collection from the database
+    var collection = database.GetCollection<BsonDocument>("TESTCOLLECTION1");
+
+    var filter = Builders<BsonDocument>.Filter.Empty;
+    var documents = collection.Find(filter).ToList();
+
+    foreach (var document in documents)
+    {
+        Console.WriteLine(document.ToString());
     }
 }
