@@ -57,7 +57,13 @@ namespace NET8NIVSUP.Repository
                         }
 
                         break;
+                    case 3:
+                        using (var context = new DBContext.TestDBSqliteContext(new Microsoft.Data.Sqlite.SqliteConnection(this._existingConnection.ConnectionString)))
+                        {
+                            result = context.testTable1s.ToList();
+                        }
 
+                        break;
                     default:
                         break;
                 }

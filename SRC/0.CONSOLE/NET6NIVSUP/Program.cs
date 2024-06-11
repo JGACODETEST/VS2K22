@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Microsoft.Data.SqlClient;
+using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -84,10 +85,18 @@ using (var serviceScope = host.Services.CreateScope())
             PersistSecurityInfo = true
         };
 
+        var builderSqlite = new SqliteConnectionStringBuilder
+        {
+            DataSource = "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET472\\Repository\\SQLite\\TESTSQLITEDB.sqlite",
+            Pooling = true
+        };
+
         //ListarSqlServer(builder, builderSQLServer);
         //ListarMySQL(builder, builderMySQL);
         //ListarPostgres(builder, builderPostgres);
-        ListarMariaDB(builder, builderMariaDB);
+        //ListarMariaDB(builder, builderMariaDB);
+
+        ListarSQLite(builder, builderSqlite);
     }
     catch (Exception ex)
     {
@@ -167,6 +176,25 @@ static void ListarMariaDB(HostApplicationBuilder builder, MySqlConnectionStringB
         var testTable1Repo = ActivatorUtilities.CreateInstance<TestTableRepo>(builder.Services.BuildServiceProvider(), connection, 1);
 
         Console.WriteLine("ITEMS MARIADB: ");
+
+        var testTable1List = testTable1Repo.getAll();
+
+        foreach (var item in testTable1List)
+        {
+            Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
+        }
+    }
+}
+
+static void ListarSQLite(HostApplicationBuilder builder, SqliteConnectionStringBuilder builderSqlite)
+{
+    using (DbConnection connection = new SqliteConnection(builderSqlite.ConnectionString))
+    {
+        connection.Open();
+
+        var testTable1Repo = ActivatorUtilities.CreateInstance<TestTableRepo>(builder.Services.BuildServiceProvider(), connection, 3);
+
+        Console.WriteLine("ITEMS SQLITE: ");
 
         var testTable1List = testTable1Repo.getAll();
 
