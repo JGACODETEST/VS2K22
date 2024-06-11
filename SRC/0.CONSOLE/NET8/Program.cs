@@ -79,11 +79,23 @@ namespace NET8
                         PersistSecurityInfo = true
                     };
 
+                    var builderMariaDB = new MySqlConnectionStringBuilder
+                    {
+                        Server = "localhost",
+                        Database = "TESTDBMARIADB1011",
+                        UserID = "root",
+                        Password = "root@2K24",
+                        Port = 3307,
+                        PersistSecurityInfo = true
+                    };
+
                     //ListarSqlServer(builder, builderSQLServer);
 
                     //ListarMySql(builder, builderMySQL);
 
-                    ListarPostgres(builder, builderPostgres);
+                    //ListarPostgres(builder, builderPostgres);
+
+                    ListarMariaDB(builder, builderMariaDB);
                 }
                 catch (Exception ex)
                 {
@@ -155,5 +167,23 @@ namespace NET8
             }
         }
 
+        private static void ListarMariaDB(HostApplicationBuilder builder, MySqlConnectionStringBuilder builderMariaDB)
+        {
+            using (DbConnection connection = new MySqlConnection(builderMariaDB.ConnectionString))
+            {
+                connection.Open();
+
+                var testTable1Repo = ActivatorUtilities.CreateInstance<TestTableRepo>(builder.Services.BuildServiceProvider(), connection, 1);
+
+                Console.WriteLine("ITEMS MARIADB: ");
+
+                var testTable1List = testTable1Repo.getAll();
+
+                foreach (var item in testTable1List)
+                {
+                    Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
+                }
+            }
+        }
     }
 }
