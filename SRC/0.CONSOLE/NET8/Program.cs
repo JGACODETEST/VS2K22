@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
 using NET8.Repository;
+using Npgsql;
 using System.Data.Common;
 
 namespace NET8
@@ -66,38 +67,23 @@ namespace NET8
                         PersistSecurityInfo = true
                     };
 
-                    using (DbConnection connection = new SqlConnection(builderSQLServer.ConnectionString))
+                    var builderPostgres = new NpgsqlConnectionStringBuilder
                     {
-                        connection.Open();
+                        Host = "localhost",
+                        Database = "TESTDBPOSTGRES13",
+                        Username = "postgres",
+                        Password = "postgre@2K24",
+                        Port = 5432,
+                        SslMode = SslMode.Prefer,
+                        SearchPath = "public",
+                        PersistSecurityInfo = true
+                    };
 
-                        var testTable1Repo = ActivatorUtilities.CreateInstance<TestTableRepo>(builder.Services.BuildServiceProvider(), connection, 0);
+                    //ListarSqlServer(builder, builderSQLServer);
 
-                        Console.WriteLine("ITEMS SQL: ");
+                    //ListarMySql(builder, builderMySQL);
 
-                        var testTable1List = testTable1Repo.getAll();
-
-                        foreach (var item in testTable1List)
-                        {
-                            Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
-                        }
-                    }
-
-                    using (DbConnection connection = new MySqlConnection(builderMySQL.ConnectionString))
-                    {
-                        connection.Open();
-
-
-                        var testTable1Repo = ActivatorUtilities.CreateInstance<TestTableRepo>(builder.Services.BuildServiceProvider(), connection, 1);
-
-                        Console.WriteLine("ITEMS MYSQL: ");
-
-                        var testTable1List = testTable1Repo.getAll();
-
-                        foreach (var item in testTable1List)
-                        {
-                            Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
-                        }
-                    }
+                    ListarPostgres(builder, builderPostgres);
                 }
                 catch (Exception ex)
                 {
@@ -109,6 +95,64 @@ namespace NET8
 
 
             Console.ReadLine();
+        }
+
+        private static void ListarSqlServer(HostApplicationBuilder builder, SqlConnectionStringBuilder builderSQLServer)
+        {
+            using (DbConnection connection = new SqlConnection(builderSQLServer.ConnectionString))
+            {
+                connection.Open();
+
+                var testTable1Repo = ActivatorUtilities.CreateInstance<TestTableRepo>(builder.Services.BuildServiceProvider(), connection, 0);
+
+                Console.WriteLine("ITEMS SQL: ");
+
+                var testTable1List = testTable1Repo.getAll();
+
+                foreach (var item in testTable1List)
+                {
+                    Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
+                }
+            }
+        }
+
+        private static void ListarMySql(HostApplicationBuilder builder, MySqlConnectionStringBuilder builderMySQL)
+        {
+            using (DbConnection connection = new MySqlConnection(builderMySQL.ConnectionString))
+            {
+                connection.Open();
+
+
+                var testTable1Repo = ActivatorUtilities.CreateInstance<TestTableRepo>(builder.Services.BuildServiceProvider(), connection, 1);
+
+                Console.WriteLine("ITEMS MYSQL: ");
+
+                var testTable1List = testTable1Repo.getAll();
+
+                foreach (var item in testTable1List)
+                {
+                    Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
+                }
+            }
+        }
+
+        private static void ListarPostgres(HostApplicationBuilder builder, NpgsqlConnectionStringBuilder builderPostgres)
+        {
+            using (DbConnection connection = new NpgsqlConnection(builderPostgres.ConnectionString))
+            {
+                connection.Open();
+
+                var testTable1Repo = ActivatorUtilities.CreateInstance<TestTableRepo>(builder.Services.BuildServiceProvider(), connection, 2);
+
+                Console.WriteLine("ITEMS POSTGRES: ");
+
+                var testTable1List = testTable1Repo.getAll();
+
+                foreach (var item in testTable1List)
+                {
+                    Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
+                }
+            }
         }
 
     }

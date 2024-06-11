@@ -45,6 +45,19 @@ namespace NET7.Repository
 
                         break;
 
+                    case 2:
+                        using (var context = new DBContext.TestDBPostgresContext(new Npgsql.NpgsqlConnection(this._existingConnection.ConnectionString)))
+                        {
+                            result = (from x in context.testTable1s
+                                      select new TestTable1()
+                                      {
+                                          Id = x.Id,
+                                          Descripcion = x.Descripcion
+                                      }).ToList();
+                        }
+
+                        break;
+
                     default:
                         break;
                 }
