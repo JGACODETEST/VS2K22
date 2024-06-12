@@ -60,6 +60,13 @@ namespace NET472
             //});
 
             instanceSQLServerService.Listar(container);
+
+            //instanceSQLServerService.Eliminar(container, new TestTable1Dto()
+            //{
+            //    Id = 9
+            //});
+
+            instanceSQLServerService.Listar(container);
         }
 
         private static void CrudMySQL(IUnityContainer container)
@@ -70,7 +77,7 @@ namespace NET472
 
             instanceMySQLService.Grabar(container, new TestTable1Dto()
             {
-                Id = 0,
+                Id = 4,
                 Descripcion = "TEST ITEM MYSQL " + Guid.NewGuid().ToString()
             });
 
@@ -78,6 +85,13 @@ namespace NET472
             //{
             //    Id = 8,
             //    Descripcion = "TEST ITEM MYSQL - MOD"
+            //});
+
+            instanceMySQLService.Listar(container);
+
+            //instanceMySQLService.Eliminar(container, new TestTable1Dto()
+            //{
+            //    Id = 3
             //});
 
             instanceMySQLService.Listar(container);
@@ -102,6 +116,13 @@ namespace NET472
             //});
 
             instancePostgresService.Listar(container);
+
+            //instancePostgresService.Eliminar(container, new TestTable1Dto()
+            //{
+            //    Id = 3
+            //});
+
+            instancePostgresService.Listar(container);
         }
 
         private static void CrudMariaDB(IUnityContainer container)
@@ -120,6 +141,13 @@ namespace NET472
             //{
             //    Id = 8,
             //    Descripcion = "TEST ITEM MARIADB - MOD"
+            //});
+
+            instanceMariaDBService.Listar(container);
+
+            //instanceMariaDBService.Eliminar(container, new TestTable1Dto()
+            //{
+            //    Id = 3
             //});
 
             instanceMariaDBService.Listar(container);
@@ -144,6 +172,13 @@ namespace NET472
             //});
 
             instanceSQLiteService.Listar(container);
+
+            //instanceSQLiteService.Eliminar(container, new TestTable1Dto()
+            //{
+            //    Id = 3
+            //});
+
+            instanceSQLiteService.Listar(container);
         }
 
         private static void CrudMongoDB(IUnityContainer container)
@@ -154,7 +189,7 @@ namespace NET472
 
             instanceMongoDBService.Grabar(container, new TestTable1Dto()
             {
-                Id = 0,
+                Id = 4,
                 Descripcion = "TEST ITEM MONGODB " + Guid.NewGuid().ToString()
             });
 
@@ -162,6 +197,13 @@ namespace NET472
             //{
             //    Id = 8,
             //    Descripcion = "TEST ITEM MONGODB - MOD"
+            //});
+
+            instanceMongoDBService.Listar(container);
+
+            //instanceMongoDBService.Eliminar(container, new TestTable1Dto()
+            //{
+            //    Id = 3
             //});
 
             instanceMongoDBService.Listar(container);

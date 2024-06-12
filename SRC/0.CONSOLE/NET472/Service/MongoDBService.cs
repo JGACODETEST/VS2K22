@@ -138,5 +138,66 @@ namespace NET472.Service
 
             return result;
         }
+
+        public bool Eliminar(IUnityContainer container, TestTable1Dto dto)
+        {
+            bool result = false;
+
+            try
+            {
+                // Replace with your connection string
+                const string connectionString = "mongodb://localhost:27017";
+
+                var client = new MongoClient(connectionString);
+                var database = client.GetDatabase("TESTMONGODB44");
+                var collection = database.GetCollection<BsonDocument>("TESTCOLLECTION1");
+
+                Console.WriteLine("ITEM MONGODB - BEFORE DELETE : " + dto.ToString());
+
+                // TODO Logging info save
+
+                var testTable1Tmp = Builders<BsonDocument>.Filter.Eq("id", dto.Id);
+
+                if (testTable1Tmp != null)
+                {
+                    Console.WriteLine("ITEM MONGODB - BEFORE DELETE : " + testTable1Tmp.ToString());
+
+                    // TODO Logging info before update
+
+
+                    // Delete the document.
+                    var resultDelete = collection.DeleteOne(testTable1Tmp);
+                    //var resultDelete = collection.DeleteMany(testTable1Tmp);
+
+                    if (resultDelete.DeletedCount > 0)
+                    {
+                        result = true;
+
+                        Console.WriteLine("Document deleted successfully.");
+                    }
+                    else
+                    {
+                        result = false;
+                        Console.WriteLine("No documents matched the query for deletion.");
+                    }                    
+                }
+                else
+                {
+                    result = false;
+                    // TODO Logging error
+                }
+
+                
+
+
+            }
+            catch (Exception ex)
+            {
+                result = false;
+                // TODO Logging error
+            }
+
+            return result;
+        }
     }
 }

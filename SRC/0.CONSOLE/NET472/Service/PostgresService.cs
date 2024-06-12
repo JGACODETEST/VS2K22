@@ -7,6 +7,7 @@ using System.Data.Common;
 using Unity;
 using Unity.Resolution;
 using NET472.Repository.Entities;
+using System.Data.SqlClient;
 
 namespace NET472.Service
 {
@@ -130,6 +131,41 @@ namespace NET472.Service
             catch (Exception ex)
             {
                 result = null;
+                // TODO Logging error
+            }
+
+            return result;
+        }
+
+        public bool Eliminar(IUnityContainer container, TestTable1Dto dto)
+        {
+            bool result = false;
+
+            try
+            {
+                using (DbConnection connection = new NpgsqlConnection(builderPostgres.ConnectionString))
+                {
+                    connection.Open();
+
+                    using (var testTable1Repo = container.Resolve<ITestTable1Repo>(
+                        new ParameterOverride("existingConnection", connection),
+                        new ParameterOverride("useSchema", true)
+                    ))
+                    {
+
+                        Console.WriteLine("ITEM POSTGRES - BEFORE DELETE : " + dto.ToString());
+
+                        // TODO Logging info save
+
+                        result = testTable1Repo.delete(ConvertDtoToTestTable1(dto));
+
+                        // TODO Logging info save                        
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                result = false;
                 // TODO Logging error
             }
 

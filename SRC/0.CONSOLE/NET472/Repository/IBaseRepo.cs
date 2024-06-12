@@ -9,5 +9,7 @@ namespace NET472.Repository
         T findOne(T entity);
 
         T save(T entity);
+
+        bool delete(T entity);
     }
 }

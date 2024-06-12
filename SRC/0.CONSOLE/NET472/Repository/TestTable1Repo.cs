@@ -10,6 +10,7 @@ namespace NET472.Repository
     {
         // Flag to indicate if the object has been disposed.
         private bool _disposed = false;
+
         private bool _useSchema { get; set; }
         private DbConnection _existingConnection { get; set; }
 
@@ -23,7 +24,7 @@ namespace NET472.Repository
         private TestTable1Schema ConvertTestTable1ToSchema(TestTable1 entity)
         {
             var result = new TestTable1Schema();
-            
+
             result.Id = entity.Id;
             result.Descripcion = entity.Descripcion;
 
@@ -202,6 +203,86 @@ namespace NET472.Repository
             return result;
         }
 
+        public bool delete(TestTable1 entity)
+        {
+            var result = false;
+
+            try
+            {
+                if (!this._useSchema)
+                {
+                    using (var context = new DBContext.TestDBContext(this._existingConnection))
+                    {
+                        using (var dbContextTransaction = context.Database.BeginTransaction())
+                        {
+                            try
+                            {
+                                if (entity.Id != 0)
+                                {
+                                    var resultTmp = context.testTable1s.Where(x => x.Id.Equals(entity.Id)).FirstOrDefault();
+
+                                    if (resultTmp != null)
+                                    {
+                                        context.testTable1s.Remove(resultTmp);
+
+                                        context.SaveChanges();
+                                        dbContextTransaction.Commit();
+
+                                        result = true;
+                                    }
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                dbContextTransaction.Rollback();
+
+                                result = false;
+                                // TODO Logging error
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    using (var context = new DBContext.TestDBSchemaContext(this._existingConnection))
+                    {
+                        using (var dbContextTransaction = context.Database.BeginTransaction())
+                        {
+                            try
+                            {
+                                if (entity.Id != 0)
+                                {
+                                    var resultTmp = context.testTable1s.Where(x => x.Id.Equals(entity.Id)).FirstOrDefault();
+
+                                    if (resultTmp != null)
+                                    {
+                                        context.testTable1s.Remove(resultTmp);
+
+                                        context.SaveChanges();
+                                        dbContextTransaction.Commit();
+
+                                        result = true;
+                                    }
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                dbContextTransaction.Rollback();
+
+                                result = false;
+                                // TODO Logging error
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return result;
+        }
 
         // Public implementation of Dispose pattern callable by consumers.
         public void Dispose()
@@ -231,7 +312,8 @@ namespace NET472.Repository
             _disposed = true;
         }
 
-        ~TestTable1Repo() {
+        ~TestTable1Repo()
+        {
             // Finalizer calls Dispose(false)
             Dispose(true);
         }

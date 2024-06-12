@@ -1,4 +1,5 @@
-﻿using Unity;
+﻿using NET472.Service.Model.Dto;
+using Unity;
 
 namespace NET472.Service
 {
@@ -7,5 +8,7 @@ namespace NET472.Service
         void Listar(IUnityContainer container);
 
         T Grabar(IUnityContainer container, T dto);
+
+        bool Eliminar(IUnityContainer container, T dto);
     }
 }
