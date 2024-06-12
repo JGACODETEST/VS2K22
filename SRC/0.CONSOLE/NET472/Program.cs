@@ -1,19 +1,9 @@
-﻿using MongoDB.Bson;
-using MongoDB.Driver;
-using MySql.Data.MySqlClient;
-using NET472.Repository;
-using Npgsql;
+﻿using NET472.Repository;
+using NET472.Repository.Entities;
+using NET472.Service;
+using NET472.Service.Model.Dto;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data.Common;
-using System.Data.SqlClient;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Unity;
-using Unity.Resolution;
 
 namespace NET472
 {
@@ -23,203 +13,158 @@ namespace NET472
         {
             IUnityContainer container = new UnityContainer();
 
-            container.RegisterType<ITestTable1Repo, TestTableRepo>();
+            container.RegisterType<ITestTable1Repo, TestTable1Repo>();
 
-            var builderSQLServer = new SqlConnectionStringBuilder
-            {
-                DataSource = "localhost",
-                InitialCatalog = "TESTDBSQL2K19",
-                UserID = "SA",
-                Password = "sql2K19@"
-            };
+            container.RegisterType<IService<TestTable1Dto>, SQLServerService>("SQLServer");
+            container.RegisterType<IService<TestTable1Dto>, MySQLService>("MySQL");
+            container.RegisterType<IService<TestTable1Dto>, PostgresService>("Postgres");
+            container.RegisterType<IService<TestTable1Dto>, MariaDBService>("MariaDB");
+            container.RegisterType<IService<TestTable1Dto>, SQLiteService>("SQLite");
+            container.RegisterType<IService<TestTable1Dto>, MongoDBService>("MongoDB");
 
-            var builderMySQL = new MySqlConnectionStringBuilder
-            {
-                Server = "localhost",
-                Database = "TESTDBMYSQL57",
-                UserID = "root",
-                Password = "root@2K24",
-                Port = 3306
-            };
 
-            var builderPostgres = new NpgsqlConnectionStringBuilder
-            {
-                Host = "localhost",
-                Database = "TESTDBPOSTGRES13",
-                Username = "postgres",
-                Password = "postgre@2K24",
-                Port = 5432,
-                SslMode = SslMode.Prefer,
-                SearchPath = "public"
-            };
+            CrudSQLServer(container);
+            CrudMySQL(container);
+            CrudPostgres(container);
+            CrudMariaDB(container);
+            CrudSQLite(container);
+            CrudMongoDB(container);
 
-            var builderMariaDB = new MySqlConnectionStringBuilder
-            {
-                Server = "localhost",
-                Database = "TESTDBMARIADB1011",
-                UserID = "root",
-                Password = "root@2K24",
-                Port = 3307
-            };
 
-            var builderSqlite = new SQLiteConnectionStringBuilder
-            {
-                DataSource = "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET472\\Repository\\SQLite\\TESTSQLITEDB.sqlite",
-                Version = 3,
-                JournalMode = SQLiteJournalModeEnum.Wal,
-                Pooling = true
-            };
+            // Force a garbage collection to occur for all generations.
+            GC.Collect();
 
-            ListSQLServer(container, builderSQLServer);
-
-            ListMySQL(container, builderMySQL);
-
-            ListPostgres(container, builderPostgres);
-
-            ListMariaDB(container, builderMariaDB);
-
-            ListSQLite(container, builderSqlite);
-
-            ListMongoDB();
+            // Wait for all finalizers to complete before continuing.
+            // Without this call to WaitForPendingFinalizers, there might still be finalizers running on objects that were just collected.
+            GC.WaitForPendingFinalizers();
 
             Console.ReadLine();
         }
 
-        
-        
-        private static void ListSQLServer(IUnityContainer container, SqlConnectionStringBuilder builderSQLServer)
+        private static void CrudSQLServer(IUnityContainer container)
         {
-            using (DbConnection connection = new SqlConnection(builderSQLServer.ConnectionString))
+            var instanceSQLServerService = container.Resolve<IService<TestTable1Dto>>("SQLServer");
+
+            instanceSQLServerService.Listar(container);
+            
+            instanceSQLServerService.Grabar(container, new TestTable1Dto()
             {
-                connection.Open();
+                Id = 0,
+                Descripcion = "TEST ITEM SQL " + Guid.NewGuid().ToString()
+            });
 
-                var testTable1Repo = container.Resolve<ITestTable1Repo>(
-                    new ParameterOverride("existingConnection", connection),
-                    new ParameterOverride("useSchema", false)
-                );
+            //instanceSQLServerService.Grabar(container, new TestTable1Dto()
+            //{
+            //    Id = 8,
+            //    Descripcion = "TEST ITEM SQL - MOD"
+            //});
 
-                Console.WriteLine("ITEMS SQL: ");
-
-                var testTable1List = testTable1Repo.getAll();
-
-                foreach (var item in testTable1List)
-                {
-                    Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
-                }
-            }
+            instanceSQLServerService.Listar(container);
         }
 
-        private static void ListMySQL(IUnityContainer container, MySqlConnectionStringBuilder builderMySQL)
+        private static void CrudMySQL(IUnityContainer container)
         {
-            using (DbConnection connection = new MySqlConnection(builderMySQL.ConnectionString))
+            var instanceMySQLService = container.Resolve<IService<TestTable1Dto>>("MySQL");
+
+            instanceMySQLService.Listar(container);
+
+            instanceMySQLService.Grabar(container, new TestTable1Dto()
             {
-                connection.Open();
+                Id = 0,
+                Descripcion = "TEST ITEM MYSQL " + Guid.NewGuid().ToString()
+            });
 
-                var testTable1Repo = container.Resolve<ITestTable1Repo>(
-                    new ParameterOverride("existingConnection", connection),
-                    new ParameterOverride("useSchema", false)
-                );
+            //instanceMySQLService.Grabar(container, new TestTable1Dto()
+            //{
+            //    Id = 8,
+            //    Descripcion = "TEST ITEM MYSQL - MOD"
+            //});
 
-                Console.WriteLine("ITEMS MYSQL: ");
-
-                var testTable1List = testTable1Repo.getAll();
-
-                foreach (var item in testTable1List)
-                {
-                    Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
-                }
-            }
+            instanceMySQLService.Listar(container);
         }
 
-        private static void ListPostgres(IUnityContainer container, NpgsqlConnectionStringBuilder builderPostgres)
+        private static void CrudPostgres(IUnityContainer container)
         {
-            using (DbConnection connection = new NpgsqlConnection(builderPostgres.ConnectionString))
+            var instancePostgresService = container.Resolve<IService<TestTable1Dto>>("Postgres");
+
+            instancePostgresService.Listar(container);
+
+            instancePostgresService.Grabar(container, new TestTable1Dto()
             {
-                connection.Open();
+                Id = 0,
+                Descripcion = "TEST ITEM POSTGRES " + Guid.NewGuid().ToString()
+            });
 
-                var testTable1Repo = container.Resolve<ITestTable1Repo>(
-                    new ParameterOverride("existingConnection", connection),
-                    new ParameterOverride("useSchema", true)
-                );
+            //instancePostgresService.Grabar(container, new TestTable1Dto()
+            //{
+            //    Id = 8,
+            //    Descripcion = "TEST ITEM POSTGRES - MOD"
+            //});
 
-                Console.WriteLine("ITEMS POSTGRES: ");
-
-                var testTable1List = testTable1Repo.getAll();
-
-                foreach (var item in testTable1List)
-                {
-                    Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
-                }
-            }
+            instancePostgresService.Listar(container);
         }
 
-        private static void ListMariaDB(IUnityContainer container, MySqlConnectionStringBuilder builderMariaDB)
+        private static void CrudMariaDB(IUnityContainer container)
         {
-            using (DbConnection connection = new MySqlConnection(builderMariaDB.ConnectionString))
+            var instanceMariaDBService = container.Resolve<IService<TestTable1Dto>>("MariaDB");
+
+            instanceMariaDBService.Listar(container);
+
+            instanceMariaDBService.Grabar(container, new TestTable1Dto()
             {
-                connection.Open();
+                Id = 0,
+                Descripcion = "TEST ITEM MARIADB " + Guid.NewGuid().ToString()
+            });
 
-                var testTable1Repo = container.Resolve<ITestTable1Repo>(
-                    new ParameterOverride("existingConnection", connection),
-                    new ParameterOverride("useSchema", false)
-                );
+            //instanceMariaDBService.Grabar(container, new TestTable1Dto()
+            //{
+            //    Id = 8,
+            //    Descripcion = "TEST ITEM MARIADB - MOD"
+            //});
 
-                Console.WriteLine("ITEMS MARIADB: ");
-
-                var testTable1List = testTable1Repo.getAll();
-
-                foreach (var item in testTable1List)
-                {
-                    Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
-                }
-            }
+            instanceMariaDBService.Listar(container);
         }
 
-        private static void ListSQLite(IUnityContainer container, SQLiteConnectionStringBuilder builderSqlite)
+        private static void CrudSQLite(IUnityContainer container)
         {
-            using (DbConnection connection = new SQLiteConnection(builderSqlite.ConnectionString))
+            var instanceSQLiteService = container.Resolve<IService<TestTable1Dto>>("SQLite");
+
+            instanceSQLiteService.Listar(container);
+
+            instanceSQLiteService.Grabar(container, new TestTable1Dto()
             {
-                connection.Open();
+                Id = 0,
+                Descripcion = "TEST ITEM SQLITE " + Guid.NewGuid().ToString()
+            });
 
-                var testTable1Repo = container.Resolve<ITestTable1Repo>(
-                    new ParameterOverride("existingConnection", connection),
-                    new ParameterOverride("useSchema", false)
-                );
+            //instanceSQLiteService.Grabar(container, new TestTable1Dto()
+            //{
+            //    Id = 8,
+            //    Descripcion = "TEST ITEM instanceSQLiteService - MOD"
+            //});
 
-                Console.WriteLine("ITEMS SQLITE: ");
-
-                var testTable1List = testTable1Repo.getAll();
-
-                foreach (var item in testTable1List)
-                {
-                    Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
-                }
-            }
+            instanceSQLiteService.Listar(container);
         }
 
-        private static void ListMongoDB()
+        private static void CrudMongoDB(IUnityContainer container)
         {
-            // Replace with your connection string
-            const string connectionString = "mongodb://localhost:27017";
+            var instanceMongoDBService = container.Resolve<IService<TestTable1Dto>>("MongoDB");
 
-            // Create a MongoClient object
-            var client = new MongoClient(connectionString);
+            instanceMongoDBService.Listar(container);
 
-            // Use the MongoClient to access the server
-            var database = client.GetDatabase("TESTMONGODB44");
-
-            // For example, to get a collection from the database
-            var collection = database.GetCollection<BsonDocument>("TESTCOLLECTION1");
-
-            var filter = Builders<BsonDocument>.Filter.Empty;
-            var documents = collection.Find(filter).ToList();
-
-            foreach (var document in documents)
+            instanceMongoDBService.Grabar(container, new TestTable1Dto()
             {
-                Console.WriteLine(document.ToString());
-            }
+                Id = 0,
+                Descripcion = "TEST ITEM MONGODB " + Guid.NewGuid().ToString()
+            });
+
+            //instanceMongoDBService.Grabar(container, new TestTable1Dto()
+            //{
+            //    Id = 8,
+            //    Descripcion = "TEST ITEM MONGODB - MOD"
+            //});
+
+            instanceMongoDBService.Listar(container);
         }
-
-
     }
 }

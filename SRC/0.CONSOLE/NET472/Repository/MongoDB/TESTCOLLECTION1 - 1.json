@@ -1,4 +1,6 @@
-[{
-	"id": 1,
-	"descripcion": "TEST MONGODB1"
-}]
+[
+  {
+    "id": 1,
+    "descripcion": "TEST MONGODB1"
+  }
+]

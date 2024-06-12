@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NET472.Repository.Entities
 {
-    [Table(name:"TESTTABLE1")]
+    [Table(name: "TESTTABLE1")]
     public class TestTable1
     {
-        [Column(name:"ID")]
+        [Column(name: "ID")]
         public int Id { get; set; }
 
         [Column(name: "DESCRIPCION")]
