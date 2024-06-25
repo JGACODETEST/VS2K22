@@ -7,8 +7,13 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using MySql.Data.MySqlClient;
 using NET8.Repository;
+using NET8.Service.Model.Dto;
+using NET8.Service;
 using Npgsql;
 using System.Data.Common;
+using System.ComponentModel;
+using System.Xml.Linq;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace NET8
 {
@@ -40,75 +45,29 @@ namespace NET8
             //builder.Services.AddSingleton<IExampleSingletonService, ExampleSingletonService>();
             //builder.Services.AddTransient<ServiceLifetimeReporter>();
 
+
+            builder.Services.AddTransient<IService<TestTable1Dto>, SQLServerService>();
+            builder.Services.AddTransient<IService<TestTable1Dto>, MySQLService>();
+            builder.Services.AddTransient<IService<TestTable1Dto>, PostgresService>();
+            builder.Services.AddTransient<IService<TestTable1Dto>, MariaDBService>();
+            builder.Services.AddTransient<IService<TestTable1Dto>, SQLiteService>();
+            builder.Services.AddTransient<IService<TestTable1Dto>, MongoDBService>();
+
             using IHost host = builder.Build();
 
-
+            
             using (var serviceScope = host.Services.CreateScope())
             {
                 var services = serviceScope.ServiceProvider;
 
                 try
                 {
-                    var builderSQLServer = new SqlConnectionStringBuilder
-                    {
-                        DataSource = "localhost",
-                        InitialCatalog = "TESTDBSQL2K19",
-                        UserID = "SA",
-                        Password = "sql2K19@",
-                        IntegratedSecurity = false,
-                        TrustServerCertificate = true, // SOLO SI ES DESARROLLO ESTO NO DEBERÍA IR EN PROD
-                        PersistSecurityInfo = true
-                    };
-
-                    var builderMySQL = new MySqlConnectionStringBuilder
-                    {
-                        Server = "localhost",
-                        Database = "TESTDBMYSQL57",
-                        UserID = "root",
-                        Password = "root@2K24",
-                        Port = 3306,
-                        PersistSecurityInfo = true
-                    };
-
-                    var builderPostgres = new NpgsqlConnectionStringBuilder
-                    {
-                        Host = "localhost",
-                        Database = "TESTDBPOSTGRES13",
-                        Username = "postgres",
-                        Password = "postgre@2K24",
-                        Port = 5432,
-                        SslMode = SslMode.Prefer,
-                        SearchPath = "public",
-                        PersistSecurityInfo = true
-                    };
-
-                    var builderMariaDB = new MySqlConnectionStringBuilder
-                    {
-                        Server = "localhost",
-                        Database = "TESTDBMARIADB1011",
-                        UserID = "root",
-                        Password = "root@2K24",
-                        Port = 3307,
-                        PersistSecurityInfo = true
-                    };
-
-                    var builderSqlite = new SqliteConnectionStringBuilder
-                    {
-                        DataSource = "D:\\DESARROLLO\\PROYECTOS\\JGACODETEST\\VS2K22\\VS2K22\\SRC\\0.CONSOLE\\NET472\\Repository\\SQLite\\TESTSQLITEDB.sqlite",
-                        Pooling = true
-                    };
-
-                    //ListarSqlServer(builder, builderSQLServer);
-
-                    //ListarMySql(builder, builderMySQL);
-
-                    //ListarPostgres(builder, builderPostgres);
-
-                    //ListarMariaDB(builder, builderMariaDB);
-
-                    //ListarSQLite(builder, builderSqlite);
-
-                    ListarMongoDB();
+                    CrudSQLServer(builder);
+                    CrudMySQL(builder);
+                    CrudPostgres(builder);
+                    CrudMariaDB(builder);
+                    CrudSQLite(builder);
+                    CrudMongoDB(builder);
                 }
                 catch (Exception ex)
                 {
@@ -121,125 +80,173 @@ namespace NET8
 
             Console.ReadLine();
         }
-
-        private static void ListarSqlServer(HostApplicationBuilder builder, SqlConnectionStringBuilder builderSQLServer)
+        
+        private static void CrudSQLServer(HostApplicationBuilder builder)
         {
-            using (DbConnection connection = new SqlConnection(builderSQLServer.ConnectionString))
+            var instanceSQLServerService = ActivatorUtilities.CreateInstance<SQLServerService>(builder.Services.BuildServiceProvider());
+
+            instanceSQLServerService.Listar(builder);
+
+            instanceSQLServerService.Grabar(builder, new TestTable1Dto()
             {
-                connection.Open();
+                Id = 0,
+                Descripcion = "TEST ITEM SQL " + Guid.NewGuid().ToString()
+            });
 
-                var testTable1Repo = ActivatorUtilities.CreateInstance<TestTableRepo>(builder.Services.BuildServiceProvider(), connection, 0);
+            //instanceSQLServerService.Grabar(container, new TestTable1Dto()
+            //{
+            //    Id = 8,
+            //    Descripcion = "TEST ITEM SQL - MOD"
+            //});
 
-                Console.WriteLine("ITEMS SQL: ");
+            instanceSQLServerService.Listar(builder);
 
-                var testTable1List = testTable1Repo.getAll();
+            //instanceSQLServerService.Eliminar(container, new TestTable1Dto()
+            //{
+            //    Id = 9
+            //});
 
-                foreach (var item in testTable1List)
-                {
-                    Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
-                }
-            }
+            instanceSQLServerService.Listar(builder);
         }
 
-        private static void ListarMySql(HostApplicationBuilder builder, MySqlConnectionStringBuilder builderMySQL)
+        private static void CrudMySQL(HostApplicationBuilder builder)
         {
-            using (DbConnection connection = new MySqlConnection(builderMySQL.ConnectionString))
+            var instanceMySQLService = ActivatorUtilities.CreateInstance<MySQLService>(builder.Services.BuildServiceProvider());
+
+            instanceMySQLService.Listar(builder);
+
+            instanceMySQLService.Grabar(builder, new TestTable1Dto()
             {
-                connection.Open();
+                Id = 4,
+                Descripcion = "TEST ITEM MYSQL " + Guid.NewGuid().ToString()
+            });
 
+            //instanceMySQLService.Grabar(builder, new TestTable1Dto()
+            //{
+            //    Id = 8,
+            //    Descripcion = "TEST ITEM MYSQL - MOD"
+            //});
 
-                var testTable1Repo = ActivatorUtilities.CreateInstance<TestTableRepo>(builder.Services.BuildServiceProvider(), connection, 1);
+            instanceMySQLService.Listar(builder);
 
-                Console.WriteLine("ITEMS MYSQL: ");
+            //instanceMySQLService.Eliminar(builder, new TestTable1Dto()
+            //{
+            //    Id = 3
+            //});
 
-                var testTable1List = testTable1Repo.getAll();
-
-                foreach (var item in testTable1List)
-                {
-                    Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
-                }
-            }
+            instanceMySQLService.Listar(builder);
         }
 
-        private static void ListarPostgres(HostApplicationBuilder builder, NpgsqlConnectionStringBuilder builderPostgres)
+        private static void CrudPostgres(HostApplicationBuilder builder)
         {
-            using (DbConnection connection = new NpgsqlConnection(builderPostgres.ConnectionString))
+            var instancePostgresService = ActivatorUtilities.CreateInstance<PostgresService>(builder.Services.BuildServiceProvider());
+
+            instancePostgresService.Listar(builder);
+
+            instancePostgresService.Grabar(builder, new TestTable1Dto()
             {
-                connection.Open();
+                Id = 0,
+                Descripcion = "TEST ITEM POSTGRES " + Guid.NewGuid().ToString()
+            });
 
-                var testTable1Repo = ActivatorUtilities.CreateInstance<TestTableRepo>(builder.Services.BuildServiceProvider(), connection, 2);
+            //instancePostgresService.Grabar(builder, new TestTable1Dto()
+            //{
+            //    Id = 8,
+            //    Descripcion = "TEST ITEM POSTGRES - MOD"
+            //});
 
-                Console.WriteLine("ITEMS POSTGRES: ");
+            instancePostgresService.Listar(builder);
 
-                var testTable1List = testTable1Repo.getAll();
+            //instancePostgresService.Eliminar(container, new TestTable1Dto()
+            //{
+            //    Id = 3
+            //});
 
-                foreach (var item in testTable1List)
-                {
-                    Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
-                }
-            }
+            instancePostgresService.Listar(builder);
         }
 
-        private static void ListarMariaDB(HostApplicationBuilder builder, MySqlConnectionStringBuilder builderMariaDB)
+        private static void CrudMariaDB(HostApplicationBuilder builder)
         {
-            using (DbConnection connection = new MySqlConnection(builderMariaDB.ConnectionString))
+            var instanceMariaDBService = ActivatorUtilities.CreateInstance<MariaDBService>(builder.Services.BuildServiceProvider());
+
+            instanceMariaDBService.Listar(builder);
+
+            instanceMariaDBService.Grabar(builder, new TestTable1Dto()
             {
-                connection.Open();
+                Id = 0,
+                Descripcion = "TEST ITEM MARIADB " + Guid.NewGuid().ToString()
+            });
 
-                var testTable1Repo = ActivatorUtilities.CreateInstance<TestTableRepo>(builder.Services.BuildServiceProvider(), connection, 1);
+            //instanceMariaDBService.Grabar(builder, new TestTable1Dto()
+            //{
+            //    Id = 8,
+            //    Descripcion = "TEST ITEM MARIADB - MOD"
+            //});
 
-                Console.WriteLine("ITEMS MARIADB: ");
+            instanceMariaDBService.Listar(builder);
 
-                var testTable1List = testTable1Repo.getAll();
+            //instanceMariaDBService.Eliminar(builder, new TestTable1Dto()
+            //{
+            //    Id = 3
+            //});
 
-                foreach (var item in testTable1List)
-                {
-                    Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
-                }
-            }
+            instanceMariaDBService.Listar(builder);
         }
 
-        private static void ListarSQLite(HostApplicationBuilder builder, SqliteConnectionStringBuilder builderSqlite)
+        private static void CrudSQLite(HostApplicationBuilder builder)
         {
-            using (DbConnection connection = new SqliteConnection(builderSqlite.ConnectionString))
+            var instanceSQLiteService = ActivatorUtilities.CreateInstance<SQLiteService>(builder.Services.BuildServiceProvider());
+
+            instanceSQLiteService.Listar(builder);
+
+            instanceSQLiteService.Grabar(builder, new TestTable1Dto()
             {
-                connection.Open();
+                Id = 0,
+                Descripcion = "TEST ITEM SQLITE " + Guid.NewGuid().ToString()
+            });
 
-                var testTable1Repo = ActivatorUtilities.CreateInstance<TestTableRepo>(builder.Services.BuildServiceProvider(), connection, 3);
+            //instanceSQLiteService.Grabar(builder, new TestTable1Dto()
+            //{
+            //    Id = 8,
+            //    Descripcion = "TEST ITEM instanceSQLiteService - MOD"
+            //});
 
-                Console.WriteLine("ITEMS SQLITE: ");
+            instanceSQLiteService.Listar(builder);
 
-                var testTable1List = testTable1Repo.getAll();
+            //instanceSQLiteService.Eliminar(builder, new TestTable1Dto()
+            //{
+            //    Id = 3
+            //});
 
-                foreach (var item in testTable1List)
-                {
-                    Console.WriteLine("- " + item.Id.ToString() + " - " + item.Descripcion);
-                }
-            }
+            instanceSQLiteService.Listar(builder);
         }
 
-        private static void ListarMongoDB()
+        private static void CrudMongoDB(HostApplicationBuilder builder)
         {
-            // Replace with your connection string
-            const string connectionString = "mongodb://localhost:27017";
+            var instanceMongoDBService = ActivatorUtilities.CreateInstance<MongoDBService>(builder.Services.BuildServiceProvider());
 
-            // Create a MongoClient object
-            var client = new MongoClient(connectionString);
+            instanceMongoDBService.Listar(builder);
 
-            // Use the MongoClient to access the server
-            var database = client.GetDatabase("TESTMONGODB44");
-
-            // For example, to get a collection from the database
-            var collection = database.GetCollection<BsonDocument>("TESTCOLLECTION1");
-
-            var filter = Builders<BsonDocument>.Filter.Empty;
-            var documents = collection.Find(filter).ToList();
-
-            foreach (var document in documents)
+            instanceMongoDBService.Grabar(builder, new TestTable1Dto()
             {
-                Console.WriteLine(document.ToString());
-            }
-        }
+                Id = 4,
+                Descripcion = "TEST ITEM MONGODB " + Guid.NewGuid().ToString()
+            });
 
+            //instanceMongoDBService.Grabar(builder, new TestTable1Dto()
+            //{
+            //    Id = 8,
+            //    Descripcion = "TEST ITEM MONGODB - MOD"
+            //});
+
+            instanceMongoDBService.Listar(builder);
+
+            //instanceMongoDBService.Eliminar(builder, new TestTable1Dto()
+            //{
+            //    Id = 3
+            //});
+
+            instanceMongoDBService.Listar(builder);
+        }
     }
 }
